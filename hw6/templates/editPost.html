@@ -1,0 +1,57 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{.Title}}</title>
+</head>
+
+<body>
+    <div class="container">
+        {{end}}
+
+        {{define "page"}}
+        {{template "header"}}
+        <h3>Edit Post</h3>
+        <form method="POST" action="/">
+            <table>
+                <tr>
+                    <td>
+                        <label>Id</label>
+                        <input type="id" name="id" value="{{.ID}}">
+                    </td>
+                    <td>
+                        <label>Title</label>
+                        <input type="title" name="title" value="{{.Title}}">
+                    </td>
+                    <td>
+                        <label>Date</label>
+                        <input type="date" name="date" value="{{.Date}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>Link</label>
+                        <input type="text" name="link" value="{{.Link}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label>Content</label><br>
+                        <textarea name="content" rows="10" cols="40">{{.Content}}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="submit">
+            <a href="/">Back</a>
+        </form>
+        {{template "footer"}}
+        {{end}}
+
+        {{define "footer"}}
+    </div>
+</body>
+
+</html>
+{{end}}

@@ -1,0 +1,41 @@
+{{define "page"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Title}}</title>
+</head>
+
+<body>
+    <div>
+        <h1>{{.Title}}</h1>
+        {{template "Posts" .}}
+    </div>
+</body>
+
+</html>
+{{end}}
+
+{{define "Posts"}}
+<div>
+    <ul>
+        {{range .Posts}}
+        {{template "ListItem" .}}
+        {{end}}
+    </ul>
+</div>
+{{end}}
+
+{{define "ListItem"}}
+<li>
+    <div>
+        <h3>{{.Title}}</h3>
+        <h4>{{.Date}}</h4>
+        <p>{{.Content}}</p>
+        <p>{{.Link}}</p>
+        <a href="/post/?id={{.ID}}">Read</a>
+        <a href="/edit/?id={{.ID}}">Edit</a>
+    </div>
+</li>
+{{end}}
